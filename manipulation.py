@@ -1,3 +1,4 @@
+#import requirements
 import zipfile
 from pathlib import Path
 import fiona
@@ -10,7 +11,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib_scalebar.scalebar import ScaleBar
 
-
+#unzip all files in the downloads directory
 def unzip():
     p = Path('.')
     
@@ -19,8 +20,8 @@ def unzip():
             archive.extractall(path=f'./downloads/{f.stem}')
             print(f'Done {f.stem}')
 
+#clip function using user input to clip/mask to desired study area
 def clip():
-
     shapefile = input('input directory of shapefile to clip extents with, including file name')
     rastin = input('input directory of raster image, including file name')
     rastout = input('output directory for clipped file, including file name')
@@ -44,6 +45,7 @@ def clip():
     with rasterio.open(rastout, "w", **out_meta) as dest:
         dest.write(out_image)
 
+#reclassifying the images to reduce number of classes from normal (~900) to just 3 for easier viewing
 def reclass():
     rastin = input('input directory of raster image to reclassify, including file name')
     rastout = input('output directory of reclassified image, including file name')
@@ -55,7 +57,7 @@ def reclass():
     lista = data.copy()
 
     lista[np.where((lista >= 0) & (lista <= mean/2))] = 1 #deforested
-    lista[np.where((lista >= mean/2) & (lista <= mean))] = 2 #meh
+    lista[np.where((lista >= mean/2) & (lista <= mean))] = 2 #middle
     lista[np.where((lista >= mean) & (lista <= max))] = 3 #forest
 
     with rasterio.open(rastout, 'w', 
@@ -67,6 +69,7 @@ def reclass():
     dtype=data.dtype) as dst:
         dst.write(lista)
 
+#map generator to creapt PNG maps of the study area(s)
 def present_maps():
     rastin = input('input directory of raster image to map, including file name')
     mapName = input('input name of map, no spaces')
