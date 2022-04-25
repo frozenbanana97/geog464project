@@ -8,4 +8,15 @@ Going through the entire notebook will extract the data and prepare for your spe
 
 A link to the Binder interactive notebook to experience this project can be found here
 
-https://mybinder.org/v2/gh/frozenbanana97/geog464project/main?labpath=user-input.ipynb
+[https://mybinder.org/v2/gh/frozenbanana97/geog464project/main?labpath=user-input.ipynb](https://mybinder.org/v2/gh/frozenbanana97/geog464project/main?labpath=user-input.ipynb)
+<br>
+### Notes
+
+- - -
+
+The requirements.txt had to be remade for the Binder collection as it did not support the manual adding of Fiona, GDAL and Rasterio wheels as is needed when running on Windows. If you want to run this on a venv in Windows you can look at my [documentation](https://github.com/frozenbanana97/documentation) repo for aid in installing these packages.
+
+- - -
+
+<br>
+<br>
