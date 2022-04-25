@@ -7,7 +7,8 @@ from rasterio import plot
 from rasterio.plot import show
 import numpy as np
 import matplotlib
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
+from matplotlib_scalebar.scalebar import ScaleBar
 
 
 def unzip():
@@ -67,3 +68,30 @@ def reclass():
         dst.write(lista)
 
 def present_maps():
+    rastin = input('input directory of raster image to map, including file name')
+    mapName = input('input name of map, no spaces')
+
+    src = rasterio.open(rastin)
+    fig, ax = plt.subplots(1, figsize=(12, 12))
+    show((src, 1), cmap='Greens', interpolation='none', ax=ax)
+    #add scalebar
+    ax.add_artist(ScaleBar(1.5, dimension= "si-length", units="m", location= 'lower right'))
+    #add north arrow
+    x, y, arrow_length = 0.05, 0.97, 0.075
+    ax.annotate('N', xy=(x, y), xytext=(x, y-arrow_length),
+                arrowprops=dict(facecolor='black', width=5, headwidth=20),
+                ha='center', va='center', fontsize=20,
+                xycoords=ax.transAxes)
+    #Add Map Title
+    ax.annotate(
+        mapName,
+        (0.5,1)
+        ,xycoords = 'axes fraction'
+        ,horizontalalignment='center'
+        ,verticalalignment='bottom'
+        ,fontsize = 20
+        ,color='#000'
+        ,fontstyle='normal'
+    )
+    plt.savefig(mapName +'.png', dpi=600)
+
