@@ -6,3 +6,5 @@ data
 __pycache__
 clip1.png
 reclass1.png
+.unotes/unotes_meta.json
+.unotes/templates/title_date.hbs
