@@ -6,19 +6,14 @@ The Jupyter Notebook will walk you through searching for and downloading the Sen
 
 Going through the entire notebook will extract the data and prepare for your specific study site, providing you with preliminary maps of the study area.
 
-A link to the Binder interactive notebook to experience this project can be found here
-
-[https://mybinder.org/v2/gh/frozenbanana97/geog464project/main?labpath=user-input.ipynb](https://mybinder.org/v2/gh/frozenbanana97/geog464project/main?labpath=user-input.ipynb)
 
 ## Notes
 
-A Earthdata login is required to download the data using this module, I have provided some data here you can download to bypass this, it has been downloade and georeferenced and should be placed somewhere within the working directory.
+A Earthdata login is required to download the data using this module, I have provided some data [here](https://1drv.ms/f/s!AmWKskG7SBaBoNMKtfzovHbecmd2WA) you can download to bypass this, it has been downloaded and georeferenced and should be placed somewhere within the working directory.
 
 - - -
 
-The requirements.txt had to be remade for the Binder collection as it did not support the manual adding of Fiona, GDAL and Rasterio wheels as is needed when running on Windows. If you want to run this on a venv in Windows you can look at my [documentation](https://github.com/frozenbanana97/documentation) repo for aid in installing these packages. requirements.txt.bak are the Windows requirements whereas requirements.txt was made solely for Binder.
+~~The requirements.txt had to be remade for the Binder collection as it did not support the manual adding of Fiona, GDAL and Rasterio wheels as is needed when running on Windows. If you want to run this on a venv in Windows you can look at my [documentation](https://github.com/frozenbanana97/documentation) repo for aid in installing these packages. requirements.txt.bak are the Windows requirements whereas requirements.txt was made solely for Binder.~~<br><br>
+I have been unable to et GDAL to work within Binder, therefore I ask that you clone and run this repo manually with your owm virtual environment if you want to view it. I have provided the Windows Wheel dependencies needed to install the requirements, thank you for your understanding.
 
 - - -
-
-<br>
-<br>
